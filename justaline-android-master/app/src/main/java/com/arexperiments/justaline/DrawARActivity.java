@@ -563,7 +563,7 @@ public class DrawARActivity extends BaseActivity
     private void addPoint2f() throws IOException {
         System.out.println("Inside addpoints....................................Insideaddpoints");
         checkExternalMedia();
-        int countt=2;
+        int countt=303;
         int readcount = 1;
         int writecount = 1;
         while(countt != 0){
