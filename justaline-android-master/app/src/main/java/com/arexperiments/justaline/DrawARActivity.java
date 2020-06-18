@@ -559,7 +559,6 @@ public class DrawARActivity extends BaseActivity
     }
 
 
-
     private void addPoint2f() throws IOException {
         System.out.println("Inside addpoints....................................Insideaddpoints");
         checkExternalMedia();
@@ -573,7 +572,8 @@ public class DrawARActivity extends BaseActivity
                 String readfile = String.valueOf(readcount) + ".txt";
                 BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(readfile)));
                 String line = null;
-                System.out.println("Inside try");
+                System.out.println("Reading "+ readfile);
+
                 while ((line = reader.readLine()) != null) {
                     System.out.println(line);
                     String[] c = line.split(" ");
