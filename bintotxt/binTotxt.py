@@ -55,7 +55,6 @@ for subdir, dirs, files in os.walk(rootdir):
             for drawing in unpack_drawings(filepath):
                 # do something with the drawing
                 for x in drawing['image']:
-                    print(stroke)
                     stroke=stroke+1
                     for i in x:
                         for j in i:
