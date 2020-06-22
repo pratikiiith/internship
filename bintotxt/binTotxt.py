@@ -51,15 +51,22 @@ for subdir, dirs, files in os.walk(rootdir):
             print("Creating txt")
             
             f=open(final + "/" + str(count)+".txt","a")
-            
+            stroke=1
             for drawing in unpack_drawings(filepath):
                 # do something with the drawing
                 for x in drawing['image']:
+                    print(stroke)
+                    stroke=stroke+1
                     for i in x:
                         for j in i:
                             f.write(str(j))
                             f.write(" ")
+                    if(stroke>10000):
+                        break
                     f.write("\n")
+                if(stroke>10000):
+                    break
+
             f.close()
 
 
