@@ -559,10 +559,11 @@ public class DrawARActivity extends BaseActivity
     }
 
 
+
     private void addPoint2f() throws IOException {
         System.out.println("Inside addpoints....................................Insideaddpoints");
         checkExternalMedia();
-        int countt=303;
+        int countt=2;
         int readcount = 1;
         int writecount = 1;
         while(countt != 0){
@@ -571,11 +572,13 @@ public class DrawARActivity extends BaseActivity
 //                BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("myfile.txt")));
                 String readfile = String.valueOf(readcount) + ".txt";
                 BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(readfile)));
+                System.out.println("Reading "+readfile);
                 String line = null;
-                System.out.println("Reading "+ readfile);
-
+                System.out.println("Inside try");
+                int stroke=0;
                 while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
+                    System.out.println("Reading "+ readfile + " Stroke no. " + String.valueOf(stroke));
+                    stroke=stroke+1;
                     String[] c = line.split(" ");
 
                     //create list
