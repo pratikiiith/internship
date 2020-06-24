@@ -42,30 +42,29 @@ final = input()
 l=[]
 count=0
 for subdir, dirs, files in os.walk(rootdir):
-    for file in files:
-        #print os.path.join(subdir, file)
-        filepath = subdir + "/" + file
-        count=count+1
-        if filepath.endswith(".bin"):
-            print(filepath)
-            print("Creating txt")
-            
-            f=open(final + "/" + str(count)+".txt","a")
-            stroke=1
-            for drawing in unpack_drawings(filepath):
-                # do something with the drawing
-                for x in drawing['image']:
-                    stroke=stroke+1
-                    for i in x:
-                        for j in i:
-                            f.write(str(j))
-                            f.write(" ")
-                    if(stroke>10000):
-                        break
-                    f.write("\n")
-                if(stroke>10000):
-                    break
-
-            f.close()
-
-
+	for file in files:
+		filepath = subdir + "/" + file
+		count=count+1
+		if filepath.endswith(".bin"):
+			print(filepath)
+			print("Creating txt")
+			f=open(final + "/" + str(count)+".txt","a")
+			stroke=1
+			for drawing in unpack_drawings(filepath):
+			# do something with the drawing
+				for x in drawing['image']:
+					print(x)
+					break
+					stroke=stroke+1
+					for i in range(len(x[0])):
+						f.write(str(x[0][i]))
+						f.write(" ")
+						f.write(str(x[1][i]))
+						if(i!=len(x[0])-1):
+							f.write(" ")
+					if(stroke>10000):
+						break
+					f.write("\n")
+				if(stroke>10000):
+					break
+			f.close()
